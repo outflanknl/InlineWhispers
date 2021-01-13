@@ -5,6 +5,8 @@ The initial output (`functions.txt` and `syscalls-asm.h`) are created as an exam
 
 Additional guidance can be found in this blog post: https://outflank.nl/blog/?p=1592
 
+Raphael Mudge (the creator of Cobalt Strike) created a tutorial video on how to use this tool: https://www.youtube.com/watch?v=mZyMs2PP38w
+
 ### What is this repository for? ###
 
 Demonstrate the ability to easily use syscalls using inline assembly in BOFs.
