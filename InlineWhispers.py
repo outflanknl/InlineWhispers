@@ -49,16 +49,16 @@ with open(fileInName, mode='r') as fileIn:
 			elif not filterThisFunction:
 				mhex = regexHexNotation.match(line)
 				if mhex:
-					out += mhex[1]+'0x'+mhex[2]+mhex[3]+' \\n\\'+'\n'
+					out += mhex.group(1)+'0x'+mhex.group(2)+mhex.group(3)+' \\n\\'+'\n'
 				else:
-					out += regexAsmComment.match(line)[1]+' \\n\\'+'\n'
+					out += regexAsmComment.match(line).group(1)+' \\n\\'+'\n'
 		else:
 			mstart = regexFunctionStart.match(line)
 			if mstart:
 				inFunction = True
-				filterThisFunction = filterFunctions and not(mstart[1] in functions)
-				out += '' if filterThisFunction else '#define Zw'+mstart[1][2:]+' '+mstart[1]+'\n'
-				out += '' if filterThisFunction else '__asm__("'+mstart[1]+': \\n\\'+'\n'
+				filterThisFunction = filterFunctions and not(mstart.group(1) in functions)
+				out += '' if filterThisFunction else '#define Zw'+mstart.group(1)[2:]+' '+mstart.group(1)+'\n'
+				out += '' if filterThisFunction else '__asm__("'+mstart.group(1)+': \\n\\'+'\n'
 			elif not filterThisFunction:
 				out += '\n'
 	
